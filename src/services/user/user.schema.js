@@ -7,12 +7,30 @@ export const userSchema = {
   $id: 'User',
   type: 'object',
   additionalProperties: false,
-  required: ['id', 'text'],
+  required: ['id', 'password', 'first_name', 'last_name', 'username', 'email', 'gender'],
   properties: {
     id: { type: 'number' },
-    text: { type: 'string' }
+    password: { type: 'string' },
+    first_name: { type: 'string' },
+    last_name: { type: 'string' },
+    username: { type: 'string' },
+    email: { type: 'string' },
+    gender: { type: 'string' }
   }
-}
+};
+    export const userUpdateSchema = {
+      $id: 'UserUpdate',
+      type: 'object',
+      additionalProperties: false,
+      required: ['id', 'password', 'first_name', 'last_name', 'username', 'email', 'gender'], // todos los campos obligatorios
+      properties: {
+        ...userSchema.properties
+      }
+    };
+
+export const userUpdateValidator = getValidator(userUpdateSchema, dataValidator);
+export const userUpdateResolver = resolve({});
+
 export const userValidator = getValidator(userSchema, dataValidator)
 export const userResolver = resolve({})
 
@@ -23,11 +41,12 @@ export const userDataSchema = {
   $id: 'UserData',
   type: 'object',
   additionalProperties: false,
-  required: ['text'],
+  required: ['password', 'first_name', 'last_name', 'username', 'email', 'gender'],
   properties: {
     ...userSchema.properties
   }
 }
+
 export const userDataValidator = getValidator(userDataSchema, dataValidator)
 export const userDataResolver = resolve({})
 

@@ -1,6 +1,6 @@
-import { user } from './user/user.js'
-export const services = app => {
-  app.configure(user)
+import { user } from './user/user.service.js';
 
-  // All services will be registered here
+export function services(app) {
+  app.configure(user);
+  // otros servicios...
 }

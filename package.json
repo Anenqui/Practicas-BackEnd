@@ -57,6 +57,7 @@
     "@feathersjs/transport-commons": "^5.0.34",
     "compression": "^1.8.0",
     "mongodb": "^6.16.0",
+    "node-fetch": "^3.3.2",
     "winston": "^3.17.0"
   },
   "devDependencies": {
