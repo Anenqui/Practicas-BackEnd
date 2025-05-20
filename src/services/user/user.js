@@ -21,11 +21,9 @@ export * from './user.schema.js'
 export const user = app => {
   // Register our service on the Feathers application
   app.use(userPath, new UserService(getOptions(app)), {
-    // A list of all methods this service exposes externally
-    methods: userMethods,
-    // You can add additional custom events to be sent to clients here
-    events: []
-  })
+  methods: userMethods,
+  });
+
   // Initialize hooks
   app.service(userPath).hooks({
     around: {

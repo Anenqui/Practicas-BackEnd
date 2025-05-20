@@ -2,29 +2,46 @@ export class UserService {
   constructor(options) {
     this.options = options || {};
   }
+
   async find(params) {
     const { name, lastName } = params.query;
 
     if (!name || !lastName) {
-      throw new Error('Faltan parámetros: name y lastName');
+      return { message: 'Faltan parámetros: name y lastName' };
     }
+
     return {
       message: `Hola ${name} ${lastName}`
     };
   }
+
   async get(id, params) {
-    throw new Error('Método get no implementado');
+    return {
+      message: `Solicitud GET con ID: ${id}`
+    };
   }
+
   async create(data, params) {
-    throw new Error('Método create no implementado');
+    return {
+      message: 'Solicitud POST (create) recibida',
+      data
+    };
   }
+
   async patch(id, data, params) {
-    throw new Error('Método patch no implementado');
+    return {
+      message: `Solicitud PATCH (actualizar) para ID: ${id}`,
+      data
+    };
   }
+
   async remove(id, params) {
-    throw new Error('Método remove no implementado');
+    return {
+      message: `Solicitud DELETE para ID: ${id}`
+    };
   }
 }
+
 export const getOptions = (app) => {
   return {};
 };
